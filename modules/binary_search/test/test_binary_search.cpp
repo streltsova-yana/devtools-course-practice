@@ -61,36 +61,19 @@ TEST(Binary_Search_Test, IncorrectRight) {
     std::vector<int> array = {
         -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
-    try {
-        BinarySearch::Search<int>(3, array, 2, 27);
-        FAIL();
-    }
-    catch (const std::string msg) {
-        ASSERT_EQ("Right border out of range", msg);
-    }
+    ASSERT_ANY_THROW(BinarySearch::Search<int>(3, array, 2, 27));
 }
 
 TEST(Binary_Search_Test, IncorrectLeft) {
     std::vector<int> array = {
         -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
-    try {
-        BinarySearch::Search<int>(3, array, -7, 8);
-        FAIL();
-    } catch (const std::string msg) {
-        ASSERT_EQ("Left border out of range", msg);
-    }
+    ASSERT_ANY_THROW(BinarySearch::Search<int>(3, array, -7, 8));
 }
 
 TEST(Binary_Search_Test, LeftGreaterThanRight) {
     std::vector<int> array = {
         -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
-
-    try {
-        BinarySearch::Search<int>(3, array, 8, 3);
-        FAIL();
-    } catch (const std::string msg) {
-        ASSERT_EQ("Right border must be greater than left border", msg);
-    }
+    ASSERT_ANY_THROW(BinarySearch::Search<int>(3, array, 8, 3));
 }
