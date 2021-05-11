@@ -4,24 +4,22 @@
 #define MODULES_BINARY_SEARCH_INCLUDE_BINARY_SEARCH_H_
 
 #include <vector>
+#include <stdexcept>
 #include <string>
 
-namespace binary_search {
+namespace BinarySearch {
 
     template <typename T>
-    int BinSearch(T key, std::vector<T> array, int left, int right) {
+    int Search(T key, std::vector<T> array, int left, int right) {
         if (left < 0 || left >= static_cast<int>(array.size())) {
-            const std::string msg("Left border out of range");
-            throw msg;
+            throw std::runtime_error("Left border out of range");
         }
         if (right < 0 || right >= static_cast<int>(array.size())) {
-            const std::string msg("Right border out of range");
-            throw msg;
+            throw std::runtime_error("Right border out of range");
         }
         if (right < left) {
-            const std::string msg(
+            throw std::runtime_error(
                     "Right border must be greater than left border");
-            throw msg;
         }
         int middle;
         bool flag = false;
@@ -37,6 +35,6 @@ namespace binary_search {
         return flag ? middle : -1;
     }
 
-}  // namespace binary_search
+}  // namespace BinarySearch
 
 #endif  // MODULES_BINARY_SEARCH_INCLUDE_BINARY_SEARCH_H_
