@@ -2,6 +2,7 @@
 #ifndef MODULES_BINARY_SEARCH_INCLUDE_SEARCH_ENGINE_H
 #define MODULES_BINARY_SEARCH_INCLUDE_SEARCH_ENGINE_H
 
+#include <algorithm>
 #include <vector>
 #include <sstream>
 #include <stdexcept>

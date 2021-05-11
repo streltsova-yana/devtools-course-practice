@@ -6,7 +6,7 @@
 #include "include/search_engine.h"
 
 int main(int argc, const char* argv[]) {
-    SearchEngine::Search app;
+    SearchEngine app;
     int retcode = 0;
     std::cout << app(argc, argv, &retcode);
     return retcode;
