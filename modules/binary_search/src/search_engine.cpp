@@ -51,7 +51,7 @@ std::string SearchEngine::operator()(int argc, const char* argv[],
 }
 
 std::string SearchEngine::help(const std::string& filename) const {
-    return "Usage: " + filename + " DESIRED VALUES...\n" +
-    "Example: " + filename + " 5 3 2 4 5\n" +
-    "Will search \"5\" element in \"1 2 4 5\" row";
+    return "Usage: " + filename + " DESIRED VALUES...\n" \
+           "Example: " + filename + " 5 3 2 4 5\n" \
+           "Will search \"5\" element in \"1 2 4 5\" row";
 }

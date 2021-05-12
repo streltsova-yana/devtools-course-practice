@@ -3,10 +3,10 @@
 #define MODULES_BINARY_SEARCH_INCLUDE_SEARCH_ENGINE_H_
 
 #include <algorithm>
-#include <vector>
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#include <vector>
 
 #include "include/binary_search.h"
 
@@ -21,7 +21,7 @@ class SearchEngine {
      * @return Output expression
      */
     std::string operator()(int argc, const char* argv[],
-                               int* retcode = nullptr) const;
+                           int* retcode = nullptr) const;
 
  private:
     std::string help(const std::string& filename) const;
