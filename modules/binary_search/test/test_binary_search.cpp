@@ -61,33 +61,38 @@ TEST(Binary_Search_Test, IncorrectRightNegative) {
     std::vector<int> array = {
         -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
-    ASSERT_ANY_THROW(BinarySearch::Search<int>(3, array, 2, -3));
+    ASSERT_THROW(BinarySearch::Search<int>(3, array, 2, -3),
+                     std::runtime_error);
 }
 
 TEST(Binary_Search_Test, IncorrectRightOutOfRange) {
     std::vector<int> array = {
             -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
-    ASSERT_ANY_THROW(BinarySearch::Search<int>(3, array, 2, 27));
+    ASSERT_THROW(BinarySearch::Search<int>(3, array, 2, 27),
+                     std::runtime_error);
 }
 
 TEST(Binary_Search_Test, IncorrectLeftNegative) {
     std::vector<int> array = {
         -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
-    ASSERT_ANY_THROW(BinarySearch::Search<int>(3, array, -7, 8));
+    ASSERT_THROW(BinarySearch::Search<int>(3, array, -7, 8),
+            std::runtime_error);
 }
 
 TEST(Binary_Search_Test, IncorrectLeftOutOfRange) {
     std::vector<int> array = {
             -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
-    ASSERT_ANY_THROW(BinarySearch::Search<int>(3, array, 27, 8));
+    ASSERT_THROW(BinarySearch::Search<int>(3, array, 27, 8),
+                     std::runtime_error);
 }
 
 TEST(Binary_Search_Test, LeftGreaterThanRight) {
     std::vector<int> array = {
         -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
-    ASSERT_ANY_THROW(BinarySearch::Search<int>(3, array, 8, 3));
+    ASSERT_THROW(BinarySearch::Search<int>(3, array, 8, 3),
+                     std::runtime_error);
 }
