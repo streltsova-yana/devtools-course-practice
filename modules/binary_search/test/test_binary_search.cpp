@@ -57,18 +57,32 @@ TEST(Binary_Search_Test, SearchInPartOfArray) {
     ASSERT_EQ(8, result);
 }
 
-TEST(Binary_Search_Test, IncorrectRight) {
+TEST(Binary_Search_Test, IncorrectRightNegative) {
     std::vector<int> array = {
         -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
+    };
+    ASSERT_ANY_THROW(BinarySearch::Search<int>(3, array, 2, -3));
+}
+
+TEST(Binary_Search_Test, IncorrectRightOutOfRange) {
+    std::vector<int> array = {
+            -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
     ASSERT_ANY_THROW(BinarySearch::Search<int>(3, array, 2, 27));
 }
 
-TEST(Binary_Search_Test, IncorrectLeft) {
+TEST(Binary_Search_Test, IncorrectLeftNegative) {
     std::vector<int> array = {
         -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
     ASSERT_ANY_THROW(BinarySearch::Search<int>(3, array, -7, 8));
+}
+
+TEST(Binary_Search_Test, IncorrectLeftOutOfRange) {
+    std::vector<int> array = {
+            -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
+    };
+    ASSERT_ANY_THROW(BinarySearch::Search<int>(3, array, 27, 8));
 }
 
 TEST(Binary_Search_Test, LeftGreaterThanRight) {
