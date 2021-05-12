@@ -6,7 +6,7 @@
 #include <vector>
 
 std::string SearchEngine::operator()(int argc, const char* argv[],
-                       int* retcode) const {
+                                     int* retcode) const {
     if (retcode != nullptr) {
         *retcode = 1;
     }
