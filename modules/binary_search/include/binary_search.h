@@ -11,15 +11,9 @@ namespace BinarySearch {
 
     template <typename T>
     int Search(T key, std::vector<T> array, int left, int right) {
-        if (left < 0 || left >= static_cast<int>(array.size())) {
-            throw std::runtime_error("Left border out of range");
-        }
-        if (right < 0 || right >= static_cast<int>(array.size())) {
-            throw std::runtime_error("Right border out of range");
-        }
-        if (right < left) {
-            throw std::runtime_error(
-                    "Right border must be greater than left border");
+        if (left < 0 || right < 0 || left > static_cast<int>(array.size()) ||
+            right > static_cast<int>(array.size()) || left > right) {
+            throw std::runtime_error("Wrong borders");
         }
         int middle;
         bool flag = false;
