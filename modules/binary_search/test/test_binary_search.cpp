@@ -41,7 +41,7 @@ TEST(Binary_Search_Test, MissingValueSearch) {
     ASSERT_EQ(-1, result);
 }
 
-TEST(Binary_Search_Test, UnSortedSearch) {
+TEST(Binary_Search_Test, UnsortedSearch) {
     std::vector<int> array = {
         8, 2, 3, 17, -1, 27, -31
     };
@@ -62,7 +62,7 @@ TEST(Binary_Search_Test, IncorrectRightNegative) {
         -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
     ASSERT_THROW(BinarySearch::Search<int>(3, array, 2, -3),
-                     std::runtime_error);
+                 std::runtime_error);
 }
 
 TEST(Binary_Search_Test, IncorrectRightOutOfRange) {
@@ -70,7 +70,7 @@ TEST(Binary_Search_Test, IncorrectRightOutOfRange) {
             -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
     ASSERT_THROW(BinarySearch::Search<int>(3, array, 2, 27),
-                     std::runtime_error);
+                 std::runtime_error);
 }
 
 TEST(Binary_Search_Test, IncorrectLeftNegative) {
@@ -78,7 +78,7 @@ TEST(Binary_Search_Test, IncorrectLeftNegative) {
         -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
     ASSERT_THROW(BinarySearch::Search<int>(3, array, -7, 8),
-            std::runtime_error);
+                 std::runtime_error);
 }
 
 TEST(Binary_Search_Test, IncorrectLeftOutOfRange) {
@@ -86,7 +86,7 @@ TEST(Binary_Search_Test, IncorrectLeftOutOfRange) {
             -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
     ASSERT_THROW(BinarySearch::Search<int>(3, array, 27, 8),
-                     std::runtime_error);
+                 std::runtime_error);
 }
 
 TEST(Binary_Search_Test, LeftGreaterThanRight) {
@@ -94,5 +94,5 @@ TEST(Binary_Search_Test, LeftGreaterThanRight) {
         -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
     };
     ASSERT_THROW(BinarySearch::Search<int>(3, array, 8, 3),
-                     std::runtime_error);
+                 std::runtime_error);
 }
