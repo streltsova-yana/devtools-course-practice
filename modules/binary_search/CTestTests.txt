@@ -21,6 +21,22 @@ set_tests_properties (${prefix}_can_print_help_without_arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
+    NAME ${prefix}_cannot_parse_non_integer_desired
+    COMMAND ${APPLICATION} aaa xxx yyy zzz
+)
+set_tests_properties (${prefix}_cannot_parse_non_integer_desired PROPERTIES
+    PASS_REGULAR_EXPRESSION "[ERROR]"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_cannot_parse_desired_with_out_of_range
+    COMMAND ${APPLICATION} 999999999999 1 1 1 1
+)
+set_tests_properties (${prefix}_cannot_parse_argument_with_out_of_range PROPERTIES
+    PASS_REGULAR_EXPRESSION "[ERROR]"
+    LABELS "${MODULE}")
+
+add_test(
     NAME ${prefix}_cannot_parse_non_integer_argument
     COMMAND ${APPLICATION} 2 xxx yyy zzz
 )
