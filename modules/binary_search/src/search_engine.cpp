@@ -7,6 +7,9 @@
 
 std::string SearchEngine::operator()(int argc, const char* argv[],
                        int* retcode) const {
+    if (retcode != nullptr) {
+        *retcode = 1;
+    }
     if (argc < 3)
         return help(argv[0]);
     int desired_value;
@@ -38,11 +41,14 @@ std::string SearchEngine::operator()(int argc, const char* argv[],
     }
     int result;
     try {
-        result = BinarySearch::Search<int>(desired_value,values,0,
+        result = BinarySearch::Search<int>(desired_value, values, 0,
                                            static_cast<int>(
                                                    values.size()) - 1);
     } catch (std::runtime_error& e) {
         return "[ERROR] " + std::string(e.what());
+    }
+    if (retcode != nullptr) {
+        *retcode = 0;
     }
     std::ostringstream str;
     str << "Index: " << result;
