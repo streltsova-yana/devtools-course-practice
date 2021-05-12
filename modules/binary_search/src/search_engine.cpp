@@ -2,6 +2,9 @@
 
 #include "include/search_engine.h"
 
+#include <string>
+#include <vector>
+
 std::string SearchEngine::operator()(int argc, const char* argv[],
                        int* retcode) const {
     if (argc < 3)
