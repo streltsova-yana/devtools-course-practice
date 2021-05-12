@@ -40,13 +40,8 @@ std::string SearchEngine::operator()(int argc, const char* argv[],
         return "[ERROR] row is not sorted";
     }
     int result;
-    try {
-        result = BinarySearch::Search<int>(desired_value, values, 0,
-                                           static_cast<int>(
-                                                   values.size()) - 1);
-    } catch (std::runtime_error& e) {
-        return "[ERROR] " + std::string(e.what());
-    }
+    result = BinarySearch::Search<int>(desired_value, values, 0,
+                                       static_cast<int>(values.size()) - 1);
     if (retcode != nullptr) {
         *retcode = 0;
     }
