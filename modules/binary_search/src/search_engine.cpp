@@ -12,23 +12,23 @@ std::string SearchEngine::operator()(int argc, const char* argv[],
     }
     if (argc < 3)
         return help(argv[0]);
-    int desired_value;
+    double desired_value;
     std::string desired_value_string;
     try {
         desired_value_string = std::string(argv[1]);
-        desired_value = std::stoi(desired_value_string);
+        desired_value = std::stod(desired_value_string);
     } catch(std::invalid_argument& e) {
         return "[ERROR] " + desired_value_string + ": invalid argument";
     } catch (std::out_of_range& e) {
         return "[ERROR] " + desired_value_string + " out of range.";
     }
 
-    std::vector<int> values;
+    std::vector<double> values;
     for (int i = 2; i < argc; i++) {
         std::string value_string;
         try {
             value_string = std::string(argv[i]);
-            int value = std::stoi(value_string);
+            double value = std::stod(value_string);
             values.push_back(value);
         } catch(std::invalid_argument& e) {
             return "[ERROR] " + value_string + ": invalid argument";
@@ -40,8 +40,9 @@ std::string SearchEngine::operator()(int argc, const char* argv[],
         return "[ERROR] row is not sorted";
     }
     int result;
-    result = BinarySearch::Search<int>(desired_value, values, 0,
-                                       static_cast<int>(values.size()) - 1);
+    result = BinarySearch::Search<double>(desired_value, values, 0,
+                                          static_cast<int>(
+                                                  values.size()) - 1);
     if (retcode != nullptr) {
         *retcode = 0;
     }
